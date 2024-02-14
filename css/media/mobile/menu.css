@@ -1,0 +1,108 @@
+.menu{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 9999;
+    background-color: #2b2b2b;
+    transition: 300ms;
+    & nav{
+        width: inherit;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        & div{
+            width:inherit;
+            & a{
+                display: block;
+                width:100%;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                text-decoration: none;
+                text-transform: capitalize;
+                color: whitesmoke;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 12px;
+                font-weight: bold;
+                transition: 300ms;
+                &:hover {
+                    color: deeppink;
+                    background-color: #3b3b3b;
+                }
+            }
+        }
+    }
+}
+#menu,#close{
+    display: none;
+}
+label[for=menu]{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    z-index: 9999;
+    background-color: #2b2b2b;
+    border-radius: 3px;
+    cursor: pointer;
+    & div{
+        width: 80%;
+        height: 2px;
+        background-color: whitesmoke;
+        position: absolute;
+    }
+    & div:nth-of-type(1){
+        left: calc(50% - 80% / 2 );
+        top: calc(50% - 2px / 2 + 5px);
+    }
+    & div:nth-of-type(2){
+        left: calc(50% - 80% / 2 );
+        top: calc(50% - 2px / 2 );
+    }
+    & div:nth-of-type(3){
+        left: calc(50% - 80% / 2 );
+        top: calc(50% - 2px / 2 - 5px );
+    }
+}
+#menu:checked ~ .menu{
+    left: 0;
+}
+#menu:checked ~ label[for=close]{
+    display: inline-block;
+}
+
+label[for=close]{
+    display: none;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    left: 5px;
+    top: 5px;
+    z-index: 99999;
+    background-color: crimson;
+    border-radius: 3px;
+    cursor: pointer;
+    & div{
+        width: 80%;
+        height: 2px;
+        background-color: whitesmoke;
+        position: absolute;
+    }
+    & div:nth-of-type(1){
+        left: calc(50% - 80% / 2 );
+        top: calc(50% - 2px / 2 );
+        transform: rotate(45deg);
+    }
+    & div:nth-of-type(2){
+        left: calc(50% - 80% / 2 );
+        top: calc(50% - 2px / 2  );
+        transform: rotate(-45deg);
+    }
+}
+#close:checked ~ .menu{
+    left: -100%;
+}
